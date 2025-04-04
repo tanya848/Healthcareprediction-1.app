@@ -71,6 +71,7 @@ feature_files = {
     "Lung Cancer": r"C:\Users\Dell\OneDrive\Desktop\Project\Project\datasets\prepocessed_lungs_data.csv",
     "Thyroid": r"C:\Users\Dell\OneDrive\Desktop\Project\Project\datasets\hypothyroid.csv"
 }
+select_gender = {"male", "female"}
 
 model_files = {
  "Diabetes": r"C:\\Project\\models minor\\-diabetes.sav",
@@ -135,7 +136,7 @@ elif st.session_state['menu'] == "Disease Prediction Page":
         
         for feature in features:
             if feature == "sex":
-                selected_gender = st.selectbox("Sex", options= ["Male", "Female"])
+                selected_gender = st.selectbox("Sex", list(select_gender))
                 user_inputs['sex'] = 1 if selected_gender == "Male" else 0
             else:
                 min_val , max_val, default_val = 0, 100, 0
